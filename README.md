@@ -1,21 +1,41 @@
 # Compliance Scanner
-
 A Python-based security and compliance scanner for detecting risks in code.
-
-## Current Features
-- Scans directories for Python files
-
-## Usage
-```
-python scanner.py
-```
-
-## Roadmap
-- File permission checking
-- Hardcoded secrets detection
-- Dependency vulnerability scanning
 
 ## Current Features
 - Scans directories for Python files
 - Detects hardcoded secrets (passwords, API keys, tokens)
 - Reports file location and line number of vulnerabilities
+- Exports results to JSON with timestamp and metadata
+
+## Usage
+```bash
+python scanner.py
+```
+
+Results saved to `scan_results.json`
+
+## Example Output
+```
+COMPLIANCE SCANNER - Security Analysis
+============================================================
+
+📁 Scanning 5 Python files...
+
+✅ Results saved to scan_results.json
+
+🚨 SCAN COMPLETE: Found 2 security issues
+============================================================
+
+[1] HIGH SEVERITY
+📁 File: ./test.py
+📝 Line: 3
+🚨 Issue: Hardcoded secret detected
+💻 Code: password = "test123"
+```
+
+## Roadmap
+- [x] Hardcoded secrets detection
+- [ ] File permission checking
+- [ ] Dependency vulnerability scanning (requirements.txt)
+- [ ] Framework compliance mapping (SOC 2, CIS Controls)
+- [ ] HTML report generation
