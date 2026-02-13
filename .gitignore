@@ -1,0 +1,9 @@
+# Scan results
+scan_results.json
+test.py
+test.txt
+
+# Python
+__pycache__/
+*.pyc
+*.pyo

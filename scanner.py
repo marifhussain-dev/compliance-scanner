@@ -1,6 +1,7 @@
 import os
 import re
-
+import json
+from datetime import datetime
 
 def scan_directory(path):
 
@@ -47,6 +48,7 @@ def secret_pattern(filepath):
     return findings
 
 
+
 def main():
     print("="*60)
     print("COMPLIANCE SCANNER - Security Analysis")
@@ -59,6 +61,18 @@ def main():
     for file in files:
         results = secret_pattern(file)
         all_findings.extend(results)
+
+     # Create report with metadata
+    report = {
+        "scan_time": datetime.now().isoformat(),
+        "total_files_scanned": len(files),
+        "total_issues_found": len(all_findings),
+        "findings": all_findings
+    }
+    
+    with open("scan_results.json", "w") as f:
+        json.dump(report, f, indent=2)
+        print("✅ Results saved to scan_results.json")
     
     print(f"\n🚨 SCAN COMPLETE: Found {len(all_findings)} security issues\n")
     print("="*60)
@@ -73,6 +87,7 @@ def main():
             print("-" * 60)
     else:
         print("\n✅ No security issues detected!")
+
     
 
             
