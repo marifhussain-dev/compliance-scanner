@@ -3,9 +3,14 @@ A Python-based security and compliance scanner for detecting risks in code.
 
 ## Current Features
 - Scans directories for Python files
+- **File permission checking (Linux/Mac/WSL)**
 - Detects hardcoded secrets (passwords, API keys, tokens)
 - Reports file location and line number of vulnerabilities
 - Exports results to JSON with timestamp and metadata
+
+## Platform Support
+- **Windows**: Secrets detection works fully. File permission checks skipped (Windows uses different security model).
+- **Linux/Mac/WSL**: All features work including file permission analysis.
 
 ## Usage
 ```bash
